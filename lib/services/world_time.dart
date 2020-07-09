@@ -1,6 +1,7 @@
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String location; // location name for UI
@@ -26,7 +27,7 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
 
       // set the time property
-      time = now.toString();
+      time = DateFormat.jm().format(now);
     } catch (e) {
       print(e);
       time = 'could not get time';
